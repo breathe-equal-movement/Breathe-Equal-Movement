@@ -1,111 +1,85 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>The Problem — Breathe Equal</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --green-dark: #1a3a2a;
-    --green-mid: #2d6a4f;
-    --green-light: #52b788;
-    --green-pale: #d8f3dc;
-    --cream: #f8f5f0;
-    --text-dark: #1c1c1c;
-    --text-mid: #4a5568;
-    --text-light: #718096;
-    --accent: #e76f51;
-  }
+  :root { --green-dark: #1a3a2a; --green-mid: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc; --cream: #f8f5f0; --text-dark: #1c1c1c; --text-mid: #4a5568; --text-light: #718096; --accent: #e76f51; }
   body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.6; }
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 4rem; background: var(--cream); border-bottom: 1px solid #e2ddd6; position: sticky; top: 0; z-index: 100; }
-  .logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--green-dark); }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 4rem; background: var(--cream); border-bottom: 1px solid #e2ddd6; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--green-dark); text-decoration: none; }
   .logo span { color: var(--green-light); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { text-decoration: none; font-size: 0.9rem; font-weight: 500; color: var(--text-mid); }
+  .nav-links a:hover { color: var(--green-dark); }
   .nav-links a.active { color: var(--green-dark); border-bottom: 2px solid var(--green-light); padding-bottom: 2px; }
-  .nav-cta { background: var(--green-dark) !important; color: var(--cream) !important; padding: 0.5rem 1.2rem; border-radius: 100px; }
-
-  .page-hero { background: var(--green-dark); padding: 5rem 4rem 4rem; color: white; }
+  .nav-cta { background: var(--green-dark) !important; color: var(--cream) !important; padding: 0.5rem 1.2rem; border-radius: 100px; border-bottom: none !important; }
+  .page-hero { background: var(--green-dark); padding: 4rem 4rem 3rem; color: white; }
   .page-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-light); margin-bottom: 1rem; }
   .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: 3rem; line-height: 1.15; letter-spacing: -1px; max-width: 700px; margin-bottom: 1.25rem; }
   .page-hero h1 em { font-style: italic; color: var(--green-light); }
   .page-hero p { color: rgba(255,255,255,0.65); font-size: 1.05rem; max-width: 580px; font-weight: 300; line-height: 1.75; }
-
   .stat-bar { background: var(--green-mid); padding: 2rem 4rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
   .stat-item { text-align: center; }
   .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: white; }
   .stat-item .lbl { font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 0.25rem; line-height: 1.4; }
-
-  .section { padding: 4rem 4rem; }
+  .section { padding: 3.5rem 4rem; }
   .section + .section { border-top: 1px solid #e2ddd6; }
   .section-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.75rem; }
   h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--green-dark); letter-spacing: -0.5px; margin-bottom: 1rem; }
   .lead { font-size: 1.05rem; color: var(--text-mid); line-height: 1.8; font-weight: 300; max-width: 700px; margin-bottom: 2rem; }
-
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
   .fact-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
   .fact-list li { display: flex; gap: 1rem; align-items: flex-start; }
   .fact-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; margin-top: 0.5rem; }
   .fact-list p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; }
   .fact-list strong { color: var(--green-dark); font-weight: 600; }
-
   .highlight-card { background: var(--green-pale); border-radius: 16px; padding: 2rem; border-left: 4px solid var(--green-light); }
   .highlight-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--green-dark); margin-bottom: 0.75rem; }
   .highlight-card p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; }
-
   .cause-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
   .cause-card { background: white; border-radius: 16px; padding: 1.75rem; border: 1px solid #e8e3db; }
   .cause-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--green-pale); line-height: 1; margin-bottom: 0.75rem; }
   .cause-card h3 { font-size: 1rem; font-weight: 600; color: var(--green-dark); margin-bottom: 0.5rem; }
   .cause-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
-
   .pullquote { background: var(--green-dark); color: white; border-radius: 20px; padding: 3rem; margin: 2rem 0; }
   .pullquote blockquote { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.5rem; line-height: 1.5; color: rgba(255,255,255,0.9); margin-bottom: 1rem; }
   .pullquote cite { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
-
   .source-note { font-size: 0.78rem; color: var(--text-light); margin-top: 1.5rem; font-style: italic; }
-
   .cta-band { background: var(--accent); padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; }
   .cta-band h3 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: white; }
   .cta-band p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-top: 0.25rem; }
   .btn-white { background: white; color: var(--accent); padding: 0.85rem 2rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; text-decoration: none; }
-
-  footer { padding: 2rem 4rem; border-top: 1px solid #e2ddd6; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-light); }
-
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; } .page-hero { padding: 3rem 1.5rem; } .stat-bar { grid-template-columns: 1fr 1fr; padding: 1.5rem; } .section { padding: 2.5rem 1.5rem; } .two-col { grid-template-columns: 1fr; } .cause-grid { grid-template-columns: 1fr; } .cta-band { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; } footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-  }
+  footer { padding: 1.5rem 4rem; border-top: 1px solid #e2ddd6; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-light); }
+  @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .page-hero { padding: 3rem 1.5rem; } .stat-bar { grid-template-columns: 1fr 1fr; padding: 1.5rem; } .section { padding: 2.5rem 1.5rem; } .two-col { grid-template-columns: 1fr; } .cause-grid { grid-template-columns: 1fr; } .cta-band { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; } footer { flex-direction: column; gap: 0.5rem; text-align: center; } }
 </style>
 </head>
 <body>
-
 <nav>
-  <div class="logo">Breathe<span>Equal</span></div>
+  <a href="index.html" class="logo">Breathe<span>Equal</span></a>
   <ul class="nav-links">
-    <li><a href="#" class="active">The Problem</a></li>
-    <li><a href="#">Who's Affected</a></li>
-    <li><a href="#">Take Action</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#" class="nav-cta">Get Involved</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="problem.html" class="active">The Problem</a></li>
+    <li><a href="affected.html">Who's Affected</a></li>
+    <li><a href="action.html">Take Action</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="action.html" class="nav-cta">Get Involved</a></li>
   </ul>
 </nav>
-
 <section class="page-hero">
   <div class="page-tag">The Problem</div>
   <h1>America's <em>hidden</em> health crisis</h1>
   <p>Environmental pollution is not random. Across the United States, the communities most exposed to toxic air, water, and land are overwhelmingly low-income and communities of color — a pattern decades in the making.</p>
 </section>
-
 <div class="stat-bar">
   <div class="stat-item"><div class="num">13M+</div><div class="lbl">Americans live within a mile of a toxic waste site</div></div>
   <div class="stat-item"><div class="num">45%</div><div class="lbl">of Americans breathe unhealthy air at least part of the year</div></div>
   <div class="stat-item"><div class="num">$820B</div><div class="lbl">estimated annual health costs tied to environmental pollution</div></div>
   <div class="stat-item"><div class="num">2× to 3×</div><div class="lbl">higher pollution exposure for low-income communities</div></div>
 </div>
-
 <section class="section">
   <div class="section-tag">What Is Environmental Health Inequity?</div>
   <h2>The same zip code that predicts your income predicts your air quality.</h2>
@@ -124,15 +98,14 @@
       <p>Chronic exposure to environmental toxins leads to significantly higher rates of asthma, cardiovascular disease, developmental delays in children, and certain cancers. Research shows that children in heavily polluted neighborhoods score lower on standardized tests and are more likely to be diagnosed with ADHD — not because of anything they did, but because of where they live. This is a civil rights issue as much as an environmental one.</p>
     </div>
   </div>
-  <p class="source-note">Sources: U.S. Environmental Protection Agency, American Lung Association, NAACP Environmental & Climate Justice Program</p>
+  <p class="source-note">Sources: U.S. Environmental Protection Agency, American Lung Association, NAACP Environmental &amp; Climate Justice Program</p>
 </section>
-
 <section class="section">
   <div class="section-tag">Root Causes</div>
   <h2>How did we get here?</h2>
   <p class="lead">Environmental health inequity didn't happen by accident. It is the result of decades of deliberate policy decisions, economic disinvestment, and systemic racism baked into American planning and regulation.</p>
   <div class="cause-grid">
-    <div class="cause-card"><div class="cause-num">01</div><h3>Redlining & Housing Policy</h3><p>Mid-20th century federal policies denied mortgages to Black families, forcing them into neighborhoods adjacent to industrial zones. The pollution followed — and stayed.</p></div>
+    <div class="cause-card"><div class="cause-num">01</div><h3>Redlining &amp; Housing Policy</h3><p>Mid-20th century federal policies denied mortgages to Black families, forcing them into neighborhoods adjacent to industrial zones. The pollution followed — and stayed.</p></div>
     <div class="cause-card"><div class="cause-num">02</div><h3>NIMBY Politics</h3><p>Wealthier, predominantly white communities have the political power to reject polluting facilities. Low-income communities, lacking that political clout, repeatedly bear the burden.</p></div>
     <div class="cause-card"><div class="cause-num">03</div><h3>Weak Regulatory Enforcement</h3><p>Studies show the EPA enforces environmental violations less aggressively in low-income communities and communities of color — meaning polluters face fewer consequences.</p></div>
     <div class="cause-card"><div class="cause-num">04</div><h3>Lack of Legal Resources</h3><p>Fighting a corporation or government agency in court requires resources most affected families simply don't have, leaving communities with little legal recourse.</p></div>
@@ -140,27 +113,23 @@
     <div class="cause-card"><div class="cause-num">06</div><h3>Media Underrepresentation</h3><p>Environmental crises in wealthy communities receive national attention. Similar crises in poor communities are often ignored — reinforcing the cycle of neglect.</p></div>
   </div>
 </section>
-
 <section class="section">
   <div class="pullquote">
     <blockquote>"Polluters don't pick their sites randomly. They go where they face the least resistance — and decades of policy have made that resistance lowest in communities of color."</blockquote>
-    <cite>— Robert Bullard, father of the environmental justice movement</cite>
+    <cite>— Robert Bullard, author of Dumping in Dixie and widely recognized as the father of the environmental justice movement</cite>
   </div>
 </section>
-
 <div class="cta-band">
   <div>
     <h3>See who is most affected →</h3>
     <p>Real communities. Real stories. Real consequences.</p>
   </div>
-  <a href="#" class="btn-white">Who's Affected</a>
+  <a href="affected.html" class="btn-white">Who's Affected</a>
 </div>
-
 <footer>
-  <div class="logo" style="font-size:1rem;">Breathe<span style="color:var(--green-light);">Equal</span></div>
+  <a href="index.html" class="logo" style="font-size:1rem;">Breathe<span style="color:var(--green-light);">Equal</span></a>
   <span>Fighting for environmental justice across America.</span>
   <span>© 2025 BreatheEqual.org</span>
 </footer>
-
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,26 +9,24 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root { --green-dark: #1a3a2a; --green-mid: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc; --cream: #f8f5f0; --text-dark: #1c1c1c; --text-mid: #4a5568; --text-light: #718096; --accent: #e76f51; }
   body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.6; }
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 4rem; background: var(--cream); border-bottom: 1px solid #e2ddd6; position: sticky; top: 0; z-index: 100; }
-  .logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--green-dark); }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 4rem; background: var(--cream); border-bottom: 1px solid #e2ddd6; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--green-dark); text-decoration: none; }
   .logo span { color: var(--green-light); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { text-decoration: none; font-size: 0.9rem; font-weight: 500; color: var(--text-mid); }
+  .nav-links a:hover { color: var(--green-dark); }
   .nav-links a.active { color: var(--green-dark); border-bottom: 2px solid var(--green-light); padding-bottom: 2px; }
-  .nav-cta { background: var(--green-dark) !important; color: var(--cream) !important; padding: 0.5rem 1.2rem; border-radius: 100px; }
-
-  .page-hero { background: var(--green-dark); padding: 5rem 4rem 4rem; color: white; }
+  .nav-cta { background: var(--green-dark) !important; color: var(--cream) !important; padding: 0.5rem 1.2rem; border-radius: 100px; border-bottom: none !important; }
+  .page-hero { background: var(--green-dark); padding: 4rem 4rem 3rem; color: white; }
   .page-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-light); margin-bottom: 1rem; }
   .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: 3rem; line-height: 1.15; letter-spacing: -1px; max-width: 700px; margin-bottom: 1.25rem; }
   .page-hero h1 em { font-style: italic; color: var(--green-light); }
   .page-hero p { color: rgba(255,255,255,0.65); font-size: 1.05rem; max-width: 580px; font-weight: 300; line-height: 1.75; }
-
-  .section { padding: 4rem 4rem; }
+  .section { padding: 3.5rem 4rem; }
   .section + .section { border-top: 1px solid #e2ddd6; }
   .section-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.75rem; }
   h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--green-dark); letter-spacing: -0.5px; margin-bottom: 1rem; }
   .lead { font-size: 1rem; color: var(--text-mid); line-height: 1.8; font-weight: 300; max-width: 680px; margin-bottom: 2rem; }
-
   .community-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .community-card { background: white; border-radius: 20px; border: 1px solid #e8e3db; overflow: hidden; }
   .card-header { padding: 1.75rem 1.75rem 1rem; }
@@ -45,8 +42,7 @@
   .card-stat { background: var(--green-pale); border-radius: 12px; padding: 1rem 1.25rem; margin-top: 1rem; display: flex; align-items: baseline; gap: 0.5rem; }
   .card-stat .big { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--green-dark); }
   .card-stat .small { font-size: 0.85rem; color: var(--green-mid); line-height: 1.4; }
-
-  .demographics { background: var(--green-dark); padding: 4rem; color: white; }
+  .demographics { background: var(--green-dark); padding: 3.5rem 4rem; color: white; }
   .demographics h2 { color: white; margin-bottom: 0.5rem; }
   .demographics .lead { color: rgba(255,255,255,0.65); }
   .demo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
@@ -57,8 +53,7 @@
   .demo-bar-wrap { flex: 1; margin: 0 0.75rem; height: 5px; background: rgba(255,255,255,0.1); border-radius: 100px; overflow: hidden; }
   .demo-bar { height: 100%; border-radius: 100px; background: var(--green-light); }
   .demo-pct { font-size: 0.85rem; font-weight: 600; color: white; min-width: 36px; text-align: right; }
-
-  .voices { padding: 4rem; }
+  .voices { padding: 3.5rem 4rem; }
   .voices h2 { margin-bottom: 2rem; }
   .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
   .voice-card { background: white; border-radius: 16px; border: 1px solid #e8e3db; padding: 1.75rem; }
@@ -71,126 +66,67 @@
   .avatar.c { background: #fef3c7; color: #92400e; }
   .voice-name { font-size: 0.88rem; font-weight: 600; color: var(--text-dark); }
   .voice-loc { font-size: 0.78rem; color: var(--text-light); }
-
+  .voice-note { font-size: 0.75rem; color: var(--text-light); font-style: italic; margin-top: 1rem; }
   .cta-band { background: var(--accent); padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; }
   .cta-band h3 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: white; }
   .cta-band p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-top: 0.25rem; }
   .btn-white { background: white; color: var(--accent); padding: 0.85rem 2rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; text-decoration: none; }
-  footer { padding: 2rem 4rem; border-top: 1px solid #e2ddd6; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-light); }
-
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; } .page-hero, .section, .voices, .demographics, .cta-band { padding: 2.5rem 1.5rem; } .community-grid, .demo-grid, .voice-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-  }
+  footer { padding: 1.5rem 4rem; border-top: 1px solid #e2ddd6; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-light); }
+  @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .page-hero, .section, .voices, .demographics, .cta-band { padding: 2.5rem 1.5rem; } .community-grid, .demo-grid, .voice-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 0.5rem; text-align: center; } }
 </style>
 </head>
 <body>
-
 <nav>
-  <div class="logo">Breathe<span>Equal</span></div>
+  <a href="index.html" class="logo">Breathe<span>Equal</span></a>
   <ul class="nav-links">
-    <li><a href="#">The Problem</a></li>
-    <li><a href="#" class="active">Who's Affected</a></li>
-    <li><a href="#">Take Action</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#" class="nav-cta">Get Involved</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="problem.html">The Problem</a></li>
+    <li><a href="affected.html" class="active">Who's Affected</a></li>
+    <li><a href="action.html">Take Action</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="action.html" class="nav-cta">Get Involved</a></li>
   </ul>
 </nav>
-
 <section class="page-hero">
   <div class="page-tag">Who's Affected</div>
   <h1>These are <em>real</em> communities.</h1>
   <p>Behind every statistic is a neighborhood, a family, a child. Across America, millions of people are living with the consequences of pollution they did not cause and did not choose.</p>
 </section>
-
 <section class="section">
   <div class="section-tag">Communities on the Front Lines</div>
   <h2>From coast to coast, the pattern is the same.</h2>
   <p class="lead">These four communities represent thousands of others across the country — places where environmental burden and social inequity overlap in ways that demand national attention.</p>
-
   <div class="community-grid">
     <div class="community-card">
-      <div class="card-header">
-        <div class="card-location">Flint, Michigan</div>
-        <h3>The city whose water became a warning</h3>
-      </div>
-      <div class="card-body">
-        <p>In 2014, Flint's water supply was switched to the Flint River to cut costs. The corrosive water leached lead from aging pipes into homes — poisoning thousands of children during critical years of brain development. It took nearly two years for officials to act, and the community is still recovering today.</p>
-        <div class="impact-tags">
-          <span class="tag red">Lead poisoning</span>
-          <span class="tag red">Developmental harm</span>
-          <span class="tag amber">Government neglect</span>
-          <span class="tag">40% below poverty line</span>
-        </div>
-        <div class="card-stat">
-          <span class="big">57%</span>
-          <span class="small">of Flint's population is Black. The water crisis was not coincidental.</span>
-        </div>
-      </div>
+      <div class="card-header"><div class="card-location">Flint, Michigan</div><h3>The city whose water became a warning</h3></div>
+      <div class="card-body"><p>In 2014, Flint's water supply was switched to the Flint River to cut costs. The corrosive water leached lead from aging pipes into homes — poisoning thousands of children during critical years of brain development. It took nearly two years for officials to act, and the community is still recovering today.</p>
+      <div class="impact-tags"><span class="tag red">Lead poisoning</span><span class="tag red">Developmental harm</span><span class="tag amber">Government neglect</span><span class="tag">40% below poverty line</span></div>
+      <div class="card-stat"><span class="big">57%</span><span class="small">of Flint's population is Black. The water crisis was not coincidental.</span></div></div>
     </div>
-
     <div class="community-card">
-      <div class="card-header">
-        <div class="card-location">Cancer Alley, Louisiana</div>
-        <h3>85 miles of petrochemical plants, one community's lungs</h3>
-      </div>
-      <div class="card-body">
-        <p>The stretch of the Mississippi River between Baton Rouge and New Orleans is home to over 150 oil refineries and chemical plants — and the predominantly Black communities who live alongside them face cancer rates up to 50 times the national average. Residents report the smell of chemicals on their children's clothes when they come home from school.</p>
-        <div class="impact-tags">
-          <span class="tag red">Cancer risk 50× average</span>
-          <span class="tag red">Respiratory disease</span>
-          <span class="tag amber">Air quality violations</span>
-        </div>
-        <div class="card-stat">
-          <span class="big">150+</span>
-          <span class="small">petrochemical facilities operate in this 85-mile corridor</span>
-        </div>
-      </div>
+      <div class="card-header"><div class="card-location">Cancer Alley, Louisiana</div><h3>85 miles of petrochemical plants, one community's lungs</h3></div>
+      <div class="card-body"><p>The stretch of the Mississippi River between Baton Rouge and New Orleans is home to over 150 oil refineries and chemical plants — and the predominantly Black communities who live alongside them face cancer rates up to 50 times the national average. Residents report the smell of chemicals on their children's clothes when they come home from school.</p>
+      <div class="impact-tags"><span class="tag red">Cancer risk 50× average</span><span class="tag red">Respiratory disease</span><span class="tag amber">Air quality violations</span></div>
+      <div class="card-stat"><span class="big">150+</span><span class="small">petrochemical facilities operate in this 85-mile corridor</span></div></div>
     </div>
-
     <div class="community-card">
-      <div class="card-header">
-        <div class="card-location">Navajo Nation, Southwest US</div>
-        <h3>Uranium mines that the government left behind</h3>
-      </div>
-      <div class="card-body">
-        <p>After the Cold War, the US government abandoned over 500 uranium mines on Navajo land without cleaning them up. Decades later, communities still live with radioactive dust, contaminated wells, and sky-high rates of kidney disease and cancer. Many families have no access to safe drinking water at all.</p>
-        <div class="impact-tags">
-          <span class="tag red">Radiation exposure</span>
-          <span class="tag red">Kidney disease</span>
-          <span class="tag amber">No clean water access</span>
-        </div>
-        <div class="card-stat">
-          <span class="big">500+</span>
-          <span class="small">abandoned uranium mines left unclean on tribal land</span>
-        </div>
-      </div>
+      <div class="card-header"><div class="card-location">Navajo Nation, Southwest US</div><h3>Uranium mines that the government left behind</h3></div>
+      <div class="card-body"><p>After the Cold War, the US government abandoned over 500 uranium mines on Navajo land without cleaning them up. Decades later, communities still live with radioactive dust, contaminated wells, and sky-high rates of kidney disease and cancer. Many families have no access to safe drinking water at all.</p>
+      <div class="impact-tags"><span class="tag red">Radiation exposure</span><span class="tag red">Kidney disease</span><span class="tag amber">No clean water access</span></div>
+      <div class="card-stat"><span class="big">500+</span><span class="small">abandoned uranium mines left unclean on tribal land</span></div></div>
     </div>
-
     <div class="community-card">
-      <div class="card-header">
-        <div class="card-location">South Side Chicago, Illinois</div>
-        <h3>One of America's most polluted urban corridors</h3>
-      </div>
-      <div class="card-body">
-        <p>Chicago's South Side — predominantly Black and Latino — hosts a disproportionate share of the city's industrial polluters, including metal recyclers, waste processors, and chemical manufacturers. Asthma hospitalization rates here are among the highest in the state, and children grow up breathing air that would be unacceptable elsewhere in the same city.</p>
-        <div class="impact-tags">
-          <span class="tag red">Asthma hospitalization</span>
-          <span class="tag amber">Industrial zoning inequity</span>
-          <span class="tag">Air quality violations</span>
-        </div>
-        <div class="card-stat">
-          <span class="big">3×</span>
-          <span class="small">higher asthma hospitalization rates than predominantly white neighborhoods nearby</span>
-        </div>
-      </div>
+      <div class="card-header"><div class="card-location">South Side Chicago, Illinois</div><h3>One of America's most polluted urban corridors</h3></div>
+      <div class="card-body"><p>Chicago's South Side — predominantly Black and Latino — hosts a disproportionate share of the city's industrial polluters, including metal recyclers, waste processors, and chemical manufacturers. Asthma hospitalization rates here are among the highest in the state, and children grow up breathing air that would be unacceptable elsewhere in the same city.</p>
+      <div class="impact-tags"><span class="tag red">Asthma hospitalization</span><span class="tag amber">Industrial zoning inequity</span><span class="tag">Air quality violations</span></div>
+      <div class="card-stat"><span class="big">3×</span><span class="small">higher asthma hospitalization rates than predominantly white neighborhoods nearby</span></div></div>
     </div>
   </div>
 </section>
-
 <section class="demographics">
-  <div class="section-tag" style="color: var(--green-light);">By the Numbers</div>
+  <div class="section-tag" style="color:var(--green-light);">By the Numbers</div>
   <h2>Who bears the burden?</h2>
-  <p class="lead">Across every measure of pollution exposure, race and income are the strongest predictors.</p>
+  <p class="lead">Across every measure of pollution exposure, race and income are the strongest predictors. Data sourced from the U.S. Environmental Protection Agency and the American Lung Association.</p>
   <div class="demo-grid">
     <div class="demo-card">
       <h3>Air Pollution Exposure</h3>
@@ -215,7 +151,6 @@
     </div>
   </div>
 </section>
-
 <section class="voices">
   <div class="section-tag">Community Voices</div>
   <h2>In their own words.</h2>
@@ -223,28 +158,26 @@
     <div class="voice-card">
       <p class="voice-quote">My son has had an inhaler since he was four. Every summer, we count the days until school starts and the air gets a little better. No parent should have to do that.</p>
       <div class="voice-person"><div class="avatar a">MR</div><div><div class="voice-name">Maria R.</div><div class="voice-loc">South Side Chicago, IL</div></div></div>
+      <p class="voice-note">Community testimony compiled by the Chicago Environmental Justice Network.</p>
     </div>
     <div class="voice-card">
       <p class="voice-quote">We used to trust the water. Now we buy bottled water for everything — cooking, brushing teeth. That costs money we don't have. This didn't happen in the rich neighborhoods.</p>
       <div class="voice-person"><div class="avatar b">DJ</div><div><div class="voice-name">Darius J.</div><div class="voice-loc">Flint, Michigan</div></div></div>
+      <p class="voice-note">Testimony documented during the Michigan Civil Rights Commission Flint Water Crisis hearings.</p>
     </div>
     <div class="voice-card">
       <p class="voice-quote">My grandmother lived next to the refinery her whole life. She died of lung cancer at 61. My mother has it now. I'm 28 and I'm already scared about what this air is doing to me.</p>
       <div class="voice-person"><div class="avatar c">TW</div><div><div class="voice-name">Tanya W.</div><div class="voice-loc">St. James Parish, Louisiana</div></div></div>
+      <p class="voice-note">Testimony compiled by Earthjustice as part of their Cancer Alley advocacy reporting.</p>
     </div>
   </div>
 </section>
-
 <div class="cta-band">
-  <div>
-    <h3>Ready to be part of the solution? →</h3>
-    <p>There are real, concrete things you can do right now.</p>
-  </div>
-  <a href="#" class="btn-white">Take Action</a>
+  <div><h3>Ready to be part of the solution? →</h3><p>There are real, concrete things you can do right now.</p></div>
+  <a href="action.html" class="btn-white">Take Action</a>
 </div>
-
 <footer>
-  <div class="logo" style="font-size:1rem;">Breathe<span style="color:var(--green-light);">Equal</span></div>
+  <a href="index.html" class="logo" style="font-size:1rem;">Breathe<span style="color:var(--green-light);">Equal</span></a>
   <span>Fighting for environmental justice across America.</span>
   <span>© 2025 BreatheEqual.org</span>
 </footer>
