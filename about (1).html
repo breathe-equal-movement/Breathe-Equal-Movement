@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Breathe Equal</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --green-dark: #1a3a2a; --green-mid: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc; --cream: #f8f5f0; --text-dark: #1c1c1c; --text-mid: #4a5568; --text-light: #718096; --accent: #e76f51; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.6; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 4rem; background: var(--cream); border-bottom: 1px solid #e2ddd6; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--green-dark); text-decoration: none; }
+  .logo span { color: var(--green-light); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 0.9rem; font-weight: 500; color: var(--text-mid); }
+  .nav-links a:hover { color: var(--green-dark); }
+  .nav-links a.active { color: var(--green-dark); border-bottom: 2px solid var(--green-light); padding-bottom: 2px; }
+  .nav-cta { background: var(--green-dark) !important; color: var(--cream) !important; padding: 0.5rem 1.2rem; border-radius: 100px; border-bottom: none !important; }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 60vh; }
+  .hero-left { background: var(--green-dark); padding: 4rem 4rem; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
+  .page-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-light); }
+  .hero-left h1 { font-family: 'DM Serif Display', serif; font-size: 2.8rem; color: white; line-height: 1.15; letter-spacing: -1px; }
+  .hero-left h1 em { font-style: italic; color: var(--green-light); }
+  .hero-left p { color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.8; font-weight: 300; }
+  .hero-right { background: var(--green-pale); display: flex; align-items: center; justify-content: center; padding: 4rem; }
+  .section { padding: 3.5rem 4rem; }
+  .section + .section { border-top: 1px solid #e2ddd6; }
+  .section-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.75rem; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--green-dark); letter-spacing: -0.5px; margin-bottom: 1.25rem; }
+  .body-text { font-size: 1rem; color: var(--text-mid); line-height: 1.85; font-weight: 300; max-width: 680px; }
+  .body-text + .body-text { margin-top: 1.25rem; }
+  .two-col { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+  .values-list { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1.5rem; }
+  .value-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .value-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .value-title { font-weight: 600; color: var(--green-dark); font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .value-desc { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
+  .sidebar-card { background: white; border-radius: 16px; border: 1px solid #e8e3db; padding: 1.75rem; }
+  .sidebar-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--green-dark); margin-bottom: 1.25rem; }
+  .detail-row { display: flex; flex-direction: column; gap: 0.25rem; padding: 0.75rem 0; border-bottom: 1px solid #f0ece5; }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); }
+  .detail-value { font-size: 0.9rem; color: var(--text-dark); font-weight: 500; }
+  .mission-band { background: var(--green-dark); padding: 3.5rem 4rem; color: white; text-align: center; }
+  .mission-band h2 { color: white; font-size: 2.2rem; max-width: 600px; margin: 0 auto 1.25rem; }
+  .mission-band p { color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto 2rem; font-size: 1rem; font-weight: 300; line-height: 1.75; }
+  .btn-green { background: var(--green-light); color: var(--green-dark); padding: 0.9rem 2.25rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; }
+  .contact { padding: 3.5rem 4rem; background: var(--cream); }
+  .contact h2 { margin-bottom: 0.5rem; }
+  .contact .lead { color: var(--text-mid); font-size: 1rem; line-height: 1.75; font-weight: 300; max-width: 500px; margin-bottom: 2rem; }
+  .contact-form { display: flex; flex-direction: column; gap: 0.75rem; max-width: 500px; }
+  input[type="text"], input[type="email"], textarea { width: 100%; padding: 0.75rem 1rem; border-radius: 10px; border: 1.5px solid #c8c3bb; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; background: white; color: var(--text-dark); outline: none; }
+  textarea { resize: vertical; min-height: 120px; }
+  input:focus, textarea:focus { border-color: var(--green-mid); }
+  .submit-btn { background: var(--green-dark); color: white; padding: 0.9rem; border: none; border-radius: 100px; font-size: 0.95rem; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; }
+  footer { padding: 1.5rem 4rem; border-top: 1px solid #e2ddd6; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-light); }
+  @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .hero { grid-template-columns: 1fr; } .hero-right { display: none; } .section, .contact, .mission-band { padding: 2.5rem 1.5rem; } .two-col { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 0.5rem; text-align: center; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Breathe<span>Equal</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="problem.html">The Problem</a></li>
+    <li><a href="affected.html">Who's Affected</a></li>
+    <li><a href="action.html">Take Action</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="action.html" class="nav-cta">Get Involved</a></li>
+  </ul>
+</nav>
+<div class="hero">
+  <div class="hero-left">
+    <div class="page-tag">About</div>
+    <h1>One student.<br/>One <em>urgent</em> cause.</h1>
+    <p>Breathe Equal was created by a 13-year-old eighth-grade student who believes that the zip code you're born into should never determine the quality of air you breathe, water you drink, or land you call home.</p>
+  </div>
+  
+</div>
+<section class="section">
+  <div class="two-col">
+    <div>
+      <div class="section-tag">My Story</div>
+      <h2>Why I built this.</h2>
+      <p class="body-text">I am a 13-year-old eighth-grade student passionate about social justice, environmental science, and health equity. I created Breathe Equal because I believe that some of the most serious problems in America are also some of the most invisible — not because the evidence isn't there, but because the people most affected often lack the platform to make their voices heard.</p>
+      <p class="body-text">When I first learned about environmental health inequity — that where you live can determine whether your children develop asthma, whether your water is safe to drink, whether your neighborhood sits next to a Superfund site — I felt a moral obligation to do something. This website is that something.</p>
+      <p class="body-text">I am not an expert. I am not a scientist or a lawyer. But I am a young person who cares deeply, who has done the research, and who believes that awareness is the first step toward justice. I built every page of this site myself and I stand behind every fact on it.</p>
+      <p class="body-text">My goal is simple: to help people understand a crisis that affects millions of their fellow Americans, and to give them the tools to act on that understanding.</p>
+      <div class="values-list" style="margin-top:2rem;">
+        <div class="value-item"><div class="value-icon">🔬</div><div><div class="value-title">Evidence-based</div><div class="value-desc">Every statistic on this site is sourced from peer-reviewed research, EPA data, or credible nonprofit reporting.</div></div></div>
+        <div class="value-item"><div class="value-icon">🤝</div><div><div class="value-title">Community-centered</div><div class="value-desc">The communities most affected by this crisis are not victims to be pitied — they are leaders of their own liberation. This site amplifies their voices.</div></div></div>
+        <div class="value-item"><div class="value-icon">⚖️</div><div><div class="value-title">Justice-focused</div><div class="value-desc">Environmental health inequity is not just a science problem — it's a civil rights problem. That framing matters.</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sidebar-card">
+        <h3>About this site</h3>
+        <div class="detail-row"><div class="detail-label">Founded</div><div class="detail-value">2026</div></div>
+        <div class="detail-row"><div class="detail-label">Created by</div><div class="detail-value">A 13-year-old eighth-grade student</div></div>
+        <div class="detail-row"><div class="detail-label">Focus area</div><div class="detail-value">Environmental Health Equity, USA</div></div>
+        <div class="detail-row"><div class="detail-label">Built with</div><div class="detail-value">HTML, CSS &amp; JavaScript</div></div>
+        <div class="detail-row"><div class="detail-label">Petition signatures</div><div class="detail-value">0 and growing</div></div>
+        <div class="detail-row"><div class="detail-label">Contact</div><div class="detail-value">Use the form below</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mission-band">
+  <h2>This is just the beginning.</h2>
+  <p>Breathe Equal is a living project. As I learn more, meet more people, and grow this community, the site will grow with it. If you share this mission, I'd love to hear from you.</p>
+  <a href="action.html" class="btn-green">Take Action With Me →</a>
+</section>
+<section class="contact">
+  <div class="section-tag">Get in Touch</div>
+  <h2>Let's connect.</h2>
+  <p class="lead">Have a question, a story to share, or want to collaborate? I read every message and will respond as soon as I can.</p>
+  <div class="contact-form">
+    <input type="text" placeholder="Your name"/>
+    <input type="email" placeholder="Your email address"/>
+    <textarea placeholder="Your message..."></textarea>
+    <button class="submit-btn">Send Message</button>
+  </div>
+</section>
+<footer>
+  <a href="index.html" class="logo" style="font-size:1rem;">Breathe<span style="color:var(--green-light);">Equal</span></a>
+  <span>Fighting for environmental justice across America.</span>
+  <span>© 2026 BreatheEqual.org</span>
+</footer>
+</body>
+</html>
