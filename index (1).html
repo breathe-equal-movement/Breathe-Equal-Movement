@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Breathe Equal — Home</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --green-dark: #1a3a2a; --green-mid: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc; --cream: #f8f5f0; --text-dark: #1c1c1c; --text-mid: #4a5568; --text-light: #718096; --accent: #e76f51; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.5; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 4rem; background: var(--cream); border-bottom: 1px solid #e2ddd6; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--green-dark); letter-spacing: -0.5px; text-decoration: none; }
+  .logo span { color: var(--green-light); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 0.9rem; font-weight: 500; color: var(--text-mid); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--green-dark); }
+  .nav-links a.active { color: var(--green-dark); border-bottom: 2px solid var(--green-light); padding-bottom: 2px; }
+  .nav-cta { background: var(--green-dark) !important; color: var(--cream) !important; padding: 0.5rem 1.2rem; border-radius: 100px; border-bottom: none !important; }
+  .hero { background: var(--green-dark); padding: 3rem 4rem 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-mid); background: var(--green-pale); padding: 0.35rem 0.9rem; border-radius: 100px; width: fit-content; }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); }
+  .hero-content { display: flex; justify-content: space-between; align-items: center; gap: 3rem; }
+  .hero-text { display: flex; flex-direction: column; gap: 1rem; flex: 1; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 3.2rem; line-height: 1.1; color: white; letter-spacing: -1.5px; }
+  h1 em { font-style: italic; color: var(--green-light); }
+  .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 460px; line-height: 1.65; font-weight: 300; }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--green-light); color: var(--green-dark); padding: 0.75rem 1.75rem; border-radius: 100px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; display: inline-block; }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-secondary { border: 1.5px solid rgba(255,255,255,0.3); color: white; padding: 0.75rem 1.75rem; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: background 0.2s; display: inline-block; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+  .stat-cards { display: flex; flex-direction: column; gap: 0.75rem; flex-shrink: 0; width: 240px; }
+  .stat-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 1rem 1.25rem; }
+  .stat-card.highlight { background: var(--green-light); border-color: transparent; }
+  .stat-number { font-family: 'DM Serif Display', serif; font-size: 2rem; color: white; line-height: 1; letter-spacing: -1px; }
+  .stat-card.highlight .stat-number { color: var(--green-dark); }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.65); margin-top: 0.25rem; line-height: 1.4; }
+  .stat-card.highlight .stat-label { color: rgba(26,58,42,0.8); }
+  .hero-quote { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1.25rem; margin-top: 0.25rem; }
+  .hero-quote p { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1rem; color: rgba(255,255,255,0.6); }
+  .hero-quote cite { font-size: 0.8rem; color: rgba(255,255,255,0.4); font-style: normal; margin-top: 0.4rem; display: block; }
+  .issues-section { padding: 2.5rem 4rem 2rem; }
+  .section-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.4rem; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--green-dark); line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+  .issues-intro { color: var(--text-mid); max-width: 560px; font-size: 0.95rem; line-height: 1.65; font-weight: 300; margin-bottom: 1.5rem; }
+  .issues-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .issue-card { background: white; border-radius: 16px; padding: 1.5rem; border: 1px solid #e8e3db; transition: transform 0.2s, box-shadow 0.2s; }
+  .issue-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+  .issue-icon { width: 40px; height: 40px; border-radius: 12px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 0.75rem; }
+  .issue-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--green-dark); margin-bottom: 0.4rem; }
+  .issue-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
+  .mission-section { background: var(--green-dark); color: white; padding: 2.75rem 4rem; text-align: center; }
+  .mission-section h2 { color: white; font-size: 2.2rem; max-width: 680px; margin: 0 auto 0.85rem; }
+  .mission-section p { color: rgba(255,255,255,0.65); font-size: 0.98rem; max-width: 560px; margin: 0 auto 1.75rem; font-weight: 300; line-height: 1.65; }
+  .btn-cta { background: var(--green-light); color: var(--green-dark); padding: 0.8rem 2rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; }
+  footer { padding: 1.5rem 4rem; border-top: 1px solid #e2ddd6; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-light); }
+  @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .hero { padding: 2rem 1.5rem; } .hero-content { flex-direction: column; } .stat-cards { width: 100%; flex-direction: row; flex-wrap: wrap; } .stat-card { flex: 1; min-width: 140px; } h1 { font-size: 2.4rem; } .issues-section { padding: 2rem 1.5rem; } .issues-grid { grid-template-columns: 1fr; } .mission-section { padding: 2rem 1.5rem; } footer { flex-direction: column; gap: 0.5rem; text-align: center; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Breathe<span>Equal</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="problem.html">The Problem</a></li>
+    <li><a href="affected.html">Who's Affected</a></li>
+    <li><a href="action.html">Take Action</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="action.html" class="nav-cta">Get Involved</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <span class="hero-tag">Environmental Health Equity</span>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Clean air is a right,<br/>not a <em>privilege.</em></h1>
+      <p class="hero-desc">Millions of Americans living in low-income and minority communities are breathing toxic air, drinking contaminated water, and living on polluted soil — through no fault of their own.</p>
+      <div class="hero-buttons">
+        <a href="problem.html" class="btn-primary">Learn the Problem</a>
+        <a href="action.html" class="btn-secondary">Take Action</a>
+      </div>
+      <div class="hero-quote">
+        <p>"Where you live should not determine whether you live."</p>
+        <cite>— Robert Bullard, father of the environmental justice movement</cite>
+      </div>
+    </div>
+    <div class="stat-cards">
+      <div class="stat-card highlight">
+        <div class="stat-number">3×</div>
+        <div class="stat-label">More likely to live near hazardous waste if you're a person of color</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">68%</div>
+        <div class="stat-label">of Black Americans live within 30 miles of a coal plant</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1 in 4</div>
+        <div class="stat-label">low-income children have elevated blood lead levels</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="issues-section">
+  <div class="section-tag">The Core Issues</div>
+  <h2>A crisis hiding in plain sight</h2>
+  <p class="issues-intro">Environmental pollution doesn't affect everyone equally. Across the US, race and income predict who breathes clean air — and who doesn't.</p>
+  <div class="issues-grid">
+    <div class="issue-card">
+      <div class="issue-icon">💨</div>
+      <h3>Air Pollution</h3>
+      <p>Industrial facilities and highways are disproportionately sited near communities of color, exposing residents to dangerous levels of particulate matter and causing higher rates of asthma and lung disease.</p>
+    </div>
+    <div class="issue-card">
+      <div class="issue-icon">💧</div>
+      <h3>Water Contamination</h3>
+      <p>From Flint, Michigan to rural Appalachia, low-income communities routinely face drinking water laced with lead, nitrates, and industrial chemicals — with little government response.</p>
+    </div>
+    <div class="issue-card">
+      <div class="issue-icon">🌱</div>
+      <h3>Toxic Land</h3>
+      <p>Hazardous waste sites and Superfund locations are clustered in low-income neighborhoods, leaving residents exposed to soil contamination and long-term health risks for generations.</p>
+    </div>
+  </div>
+</section>
+<section class="mission-section">
+  <h2>You can be part of the change.</h2>
+  <p>Whether you sign a petition, contact your representatives, or simply share this page — every action moves us closer to a country where every family breathes clean air, drinks clean water, and lives on safe land.</p>
+  <a href="action.html" class="btn-cta">See How to Help →</a>
+</section>
+<footer>
+  <a href="index.html" class="logo" style="font-size:1rem;">Breathe<span style="color:var(--green-light);">Equal</span></a>
+  <span>Fighting for environmental justice across America.</span>
+  <span>© 2026 BreatheEqual.org</span>
+</footer>
+</body>
+</html>
